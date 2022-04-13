@@ -1,0 +1,18 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: servidores  # Ubu_srv_01 y Ubu_srv_02
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: instalar_nginx           # Es el nombre de la tarea y es obligatorio ponerlo.
+      apt: name=nginx state=present  # Acción a realizar. Llamamos al módulo instalador de paquetes.
+ 
+    - name: reinicar_nginx           # Reiniciamos el servicio al aplicar el playbook.
+      ansible.builtin.service:       # Es conveniente cualificar completamente al módulo.
+        name: nginx                  
+        state: restarted             
+
+
+
+
+  
+
