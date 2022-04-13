@@ -18,10 +18,9 @@
       ansible.builtin.service:       # Es conveniente cualificar completamente al módulo.
         name: nginx                  # Servicio al que nos estamos refiriendo.
         state: stopped               # Deseamos que esté detenido.
+      become: true                   # Observar el sangrado. 'become' es un parámetro de la tarea, no del módulo.
 
 
 
-
-
-      
+  
 
