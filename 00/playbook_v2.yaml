@@ -12,6 +12,7 @@
   tasks:
     - name: instalar_nginx           # Es el nombre de la tarea y es obligatorio ponerlo.
       apt: name=nginx state=present  # Acción a realizar. Llamamos al módulo instalador de paquetes.
+      become: true                   # Esta tarea se ejecuta con permisos de SUDO.
 
     - name: muestra_saludo           # Otra tarea. Observa que el bloque comienza con '-'.
       shell: echo "Hola Mundo!!!"    # Acción a realizar. Llamamos al módulo 'shell'.
