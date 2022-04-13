@@ -1,0 +1,24 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: 192.168.20.60  # Ubu_srv_01
+
+# También podemos elegir un grupo de máquinas o aplicar a todas las que están
+# definidas en el archivo 'etc/ansible/hosts'.
+#
+# - hosts: servidores
+# - hosts: all
+
+# Ahora indicamos las configuraciones (o tareas) a aplicar.
+# Nota: Observar que NO empieza por '-' y está sangrado con dos espacios en blanco.
+  tasks:
+    - name: instalar_nginx           # Es el nombre de la tarea y es obligatorio ponerlo.
+      apt: name=nginx state=present  # Acción a realizar. Llamamos al módulo instalador de paquetes.
+      become: true                   # Esta tarea se ejecuta con permisos de SUDO.
+
+    - name: detener_nginx            # Normalmente desearemos el servicio iniciado, pero esto es un ejemplo.
+      ansible.builtin.service:       # Es conveniente cualificar completamente al módulo.
+        name: nginx                  # Servicio al que nos estamos refiriendo.
+        state: stopped               # Deseamos que esté detenido.
+
+
+      
+
