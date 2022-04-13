@@ -18,9 +18,9 @@
       ansible.builtin.service:       # Es conveniente cualificar completamente al módulo.
         name: nginx                  # Servicio al que nos estamos refiriendo.
         state: stopped               # Deseamos que esté detenido.
-        become: true                 # Es necesario aportar permisos de SUDO.
 
-        
+
+
 
 
       
