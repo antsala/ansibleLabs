@@ -1,0 +1,25 @@
+- hosts: 192.168.20.60  # Máquina a configurar. Tiene creado el usuario 'otrousuario'.
+  # become: true        # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Instalar nginx
+      apt: name=nginx state=present update_cache=yes  # 'update_cache=yes' esquivale a 'apt-get update'.
+      notify:   # Aquí ponemos la lista de los handlers que deben ser llamados cuando se complete la tarea.
+        - "Reinicia nginx"  # Ponemos en nombre del handler.
+
+  handlers: # Bloque para los handlers.
+    - name: Reinicia nginx                  # Realmente no es necesario reiniciar xginx...
+      service: name=nginx state=restarted   # Es un ejemplo para demostrar el funcionamiento de los eventos
+                                            # y los handlers.
+                                  
+
+
+
+
+
+
+
+
+
+
+

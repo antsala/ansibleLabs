@@ -1,0 +1,48 @@
+- hosts: 192.168.20.60  # Máquina a configurar. Tiene creado el usuario 'otrousuario'.
+  # become: true        # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Instalar 'Uncomplicated Firewall' (ufw)
+      apt: name=ufw state=present    # Instalamos 'ufw'.
+
+    - name: Configurar el firewall 'ufw'
+      ufw:
+        state: enabled       # Habilitamos el firewall.
+        policy: allow        # Habilita regla permitir.
+
+    - name: Abrir puerto SSH
+      ufw:
+        rule: allow           # Abre puerto...
+        name: OpenSSH         # 22.
+
+    - name: Abre intervalo de puertos
+      ufw:
+        rule: allow           # Abre puertos...
+        port: 2345:5432       # desde el 2345 al 5432...
+        proto: tcp            # para TCP.  
+
+    - name: Abre puerto servidor web.
+      ufw: 
+        rule: allow           # Abre puerto...
+        port: '80'            # http...
+        proto: tcp            # para tcp.
+
+    - name: Permite acceso desde red local
+      ufw:
+        rule: allow           
+        src: '{{ item }}'     # Hacemos uso de una variable...
+      loop:                   # que se itera con este bucle.
+        - 10.0.0.0/8
+        - 172.16.0.0/12
+        - 192.168.0.0/16
+
+
+
+
+
+
+
+
+
+
+

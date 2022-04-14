@@ -1,0 +1,20 @@
+- hosts: 192.168.20.60  # Máquina a configurar. Tiene creado el usuario 'otrousuario'.
+   
+  tasks:
+    - name: Crear un nuevo usuario
+      user:
+        name:      coyote
+        comment:   Willie E coyote
+        uid:       1010
+
+
+
+
+
+
+
+
+
+
+
+

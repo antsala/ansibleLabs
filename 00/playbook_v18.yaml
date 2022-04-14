@@ -1,0 +1,23 @@
+- hosts: 192.168.20.60  # Máquina a configurar. Tiene creado el usuario 'otrousuario'.
+   
+  tasks:
+    - name: Crear una tarea planificada
+      cron:
+        name: Mostrar mensaje
+        job: echo "Hola Mundo!"
+
+        month:  "4"
+        day:    "5"
+        hour:   "17"
+        minute: "00"
+
+
+
+
+
+
+
+
+
+
+
