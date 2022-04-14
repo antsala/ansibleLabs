@@ -1,0 +1,22 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: servidores  # Ubu_srv_01 y Ubu_srv_02
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Crea el directorio '/fooDir0'
+      ansible.builtin.file:     # Usamos el módulo file.
+        path:  /fooDir          # El directorio que queremos crear.
+        state: directory        # Indicamos que es un directorio y no un archivo.
+
+
+
+    
+
+
+
+
+
+
+
+  
+

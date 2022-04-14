@@ -1,0 +1,15 @@
+- hosts: 192.168.20.60  # Máquina a configurar.
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Instalar nginx en Ubuntu 20.04 o 21.04
+      apt: name=nginx state=present                      # Instalamos nginx...
+      when: ansible_distribution_version == "20.04" or
+            ansible_distribution_version == "21.04"      # Solo si es Ubuntu 20.04 o 21.04.
+
+
+
+
+
+
+

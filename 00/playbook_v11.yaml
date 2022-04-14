@@ -1,0 +1,10 @@
+- hosts: 192.168.20.60  # Máquina a configurar.
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Instalar nginx solo si la máquina es Ubuntu.
+      apt: name=nginx state=present         # Instalamos nginx...
+      when: ansible_os_family == "Debian"   # Ubuntu es Debian.
+
+
+

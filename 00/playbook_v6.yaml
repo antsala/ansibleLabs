@@ -1,0 +1,19 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: servidores  # Ubu_srv_01 y Ubu_srv_02
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Cambia permisos en archivo '/foo.txt'
+      ansible.builtin.file:     # Usamos el módulo file.
+        path:   /foo.txt        # El archivo.
+        owner:  root            # Quien queremos que sea el propietario.
+        group:  root            # Grupo propietario.
+        mode:   u=rw,g=rw,o=rw  # rw-rw-rw-
+
+
+
+
+
+
+  
+

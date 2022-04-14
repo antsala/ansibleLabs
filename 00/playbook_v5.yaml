@@ -1,0 +1,19 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: servidores  # Ubu_srv_01 y Ubu_srv_02
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Copia archivo de local a remoto    # Es el nombre de la tarea.
+      ansible.builtin.copy:   # Usamosel módulo copy.
+        src:    ./foo.txt     # Origen.
+        dest:   /foo.txt      # Destino.
+        owner:  antonio       # CAMBIARLO POR TU USUARIO.
+        group:  antonio       # CAMBIARLO POR EL GRUPO DE TU USUARIO.
+        mode:   u=rw,g=r,o=r  # rw-r--r--
+
+
+
+
+
+  
+

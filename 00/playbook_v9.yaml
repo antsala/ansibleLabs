@@ -1,0 +1,12 @@
+# Indicamos las máquinas en las que se aplicará la configuración.
+- hosts: servidores  # Ubu_srv_01 y Ubu_srv_02
+  become: true       # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Uso de disco        # Este es el nombre de la tarea.
+      command:  'df /'  # Usamos el módulo 'ansible.builtin.command'. Observar la sintaxis.
+      register: df      # Capturamos la salida estándar del comando anterior y la almacenamos
+                        # en la variable 'df'
+    
+    - debug: var=df.stdout  # Necesario para poder visualizar la variable 'df'
+
