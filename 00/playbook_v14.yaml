@@ -1,0 +1,17 @@
+- hosts: 192.168.20.60  # Máquina a configurar. Tiene creado el usuario 'otrousuario'.
+  become: true          # Todas las tareas se ejecutarán con permisos de SUDO.
+ 
+  tasks:
+    - name: Instalar nginx
+      apt: name=nginx state=present # Instalamos nginx...
+      remote_user: otrousuario      # Queremos correr la tarea con este usuario.
+
+
+
+
+
+
+
+
+
+
