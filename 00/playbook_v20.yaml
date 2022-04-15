@@ -1,0 +1,15 @@
+- hosts: servidores  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
+   
+  tasks:
+    - name: Desinstalar Nginx          # Nos aseguramos que nginx no está...
+      apt: name=nginx state=absent
+
+    - name: Instalar Apache            # Porque  vamos a instalar Apache.
+      apt: name=apache2 state=present
+
+    - name: Copiar 'index.html' a los servidores.
+      template:
+        src: index.html.j2               # Este es el archivo de plantilla Jinja2 que construirá 
+        dest: /var/www/html/index.html   # la página 'index.html' en cada servidor.
+        mode: 0777
+
