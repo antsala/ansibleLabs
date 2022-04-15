@@ -1,11 +1,24 @@
 - hosts: 192.168.20.60  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
    
   vars:                     # Esta sección define las variables.
-    saludo: "Hola mundo!"   # Defino la variable 'saludo'.
+    semana:                 # Defino la variable 'semana', no es necesario entrecomillar los valores.
+      - Lunes
+      - Martes
+      - Miércoles
+      - Jueves
+      - Viernes
+      - Sábado
+      - Domingo
 
   tasks:
-    - name: Ejemplo de variable en Ansible
+    - name: Ejemplo de uso de lista
       debug:
-        msg: "{{ saludo }}"
+        msg: "{{ semana }}"  # Referencia la lista completa.
+
+    - name: Ejemplo de referencia de elemento en la lista
+      debug:
+        msg: "{{ semana[1] }}" # Referencia un elemento de la lista.
+
+
 
 
