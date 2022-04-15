@@ -1,0 +1,34 @@
+- hosts: 192.168.20.60  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
+   
+  vars:      # Esta sección define las variables.
+    datos:   # El diccionario se define con la identación.
+      num1:  # Se puede crear una diccionario anidado poniendo un objeto 'dict' en el campo valor.
+        nombre     : Willie
+        apellidos  : E. Coyote
+        userName   : wCoyote
+      num2:  
+        nombre     : Jaime
+        apellidos  : Tralleta
+        userName   : jTralleta
+      num3:  
+        nombre     : Andrés
+        apellidos  : Trozado
+        userName   : aTrozado
+   
+  tasks:
+    - name: Mostrar uso de diccionario
+      debug:
+        msg: "El usuario {{ item.key }} es {{ item.value.nombre }} {{ item.value.apellidos }} y su login es {{ item.value.userName }} "
+      loop: "{{ lookup('dict', datos) }}"
+
+
+
+
+
+
+
+
+
+
+
+

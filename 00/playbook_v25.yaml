@@ -1,0 +1,20 @@
+- hosts: 192.168.20.60  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
+   
+  vars:      # Esta sección define las variables.
+    datos:   # El diccionario se define con la identación.
+      nombre     : Willie
+      apellidos  : E. Coyote
+      userName   : wCoyote
+
+  tasks:
+    - name: Mostrar uso de diccionario
+      debug:
+        msg: "{{ datos.nombre }} {{ datos.apellidos }} inicia sesión como {{ datos.userName }}"
+
+
+
+
+
+
+
+

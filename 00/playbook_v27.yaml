@@ -1,0 +1,7 @@
+- hosts: 192.168.20.60  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
+   
+  tasks:
+    - name: Leer un custom fact
+      debug:
+        msg: El custom fact leído es {{ ansible_local.fecha }}
+
