@@ -1,0 +1,11 @@
+- hosts: servidores  # No olvidemos eque en 'ansible.cfg' se indica 'remote_user' y 'become'.
+   
+  vars:                     # Esta sección define las variables.
+    saludo: "Hola mundo!"   # Defino la variable 'saludo'.
+
+  tasks:
+    - name: Ejemplo de variable en Ansible
+      debug:
+        msg: "{{ saludo }}"
+
+
