@@ -1,0 +1,7 @@
+# Archivo de configuración para {{ inventory_hostname }} 
+ip prefix-list my_networks
+
+{% for network in my_networks %}
+  permit {{ network }}
+{% endfor %}
+

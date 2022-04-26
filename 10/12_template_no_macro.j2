@@ -1,0 +1,13 @@
+{% for iface in all_interfaces %}
+interface {{ iface.name }}
+  switchport mode {{ iface.mode }}
+{% if iface.mode == 'trunk' %}
+  switchport trunk native vlan {{ iface.vlan }}
+{% elif iface.mode == 'access' %}
+  switchport access vlan {{ iface.vlan }}
+{% endif %}
+{% endfor %}
+
+
+
+

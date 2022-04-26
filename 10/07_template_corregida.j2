@@ -1,0 +1,25 @@
+# Archivo de configuración para el router {{ inventory_hostname }} 
+hostname {{ hostname }}
+
+ip routing
+
+{% for iface, idata in interfaces.items() -%}
+interface {{ iface }}
+  ip address {{ idata.ip }}/{{ idata.mask }}
+{%- endfor %}
+
+{% if routing_protocol | default('none')  == 'bgp' -%}
+router bgp {{ bgp.as }}
+  router-id {{ interfaces.iface0.ip }}
+  network {{ interfaces.iface0.ip }}/{{ interfaces.iface0.mask }}
+{%- elif routing_protocol | default('none') == 'ospf' -%}
+router ospf {{ ospf.pid }}
+  router-id {{ interfaces.iface0.ip }}
+  network {{ interfaces.iface0.ip }}/{{ interfaces.iface0.mask }} area 0
+{%- else -%}
+  ip route 0.0.0.0/0 {{ default_nh }}
+{%- endif %}
+
+
+
+

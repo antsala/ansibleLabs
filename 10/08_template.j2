@@ -1,0 +1,12 @@
+{% if A and B -%}
+A y B son verdaderos. A: {{ A }}, B: {{ B }}
+{%- endif %}
+
+{% if A or C -%}
+A o C son verdaderos. A: {{ A }}, C: {{ C }}
+{%- endif %}
+
+{% if X < Y and A == B -%}
+X es menor que Y, y A y B son iguales. X: {{ X }}, Y: {{ Y }}, A: {{ A }}, B: {{ B }}
+{%- endif %}
+

@@ -1,0 +1,10 @@
+{
+    "interface": {
+        "name": "GigabitEthernet1",
+        "ip_address": "192.160.20.1/24",
+        "speed": "1000",
+        "duplex": "full",
+        "mtu": "9124"
+    }
+}
+

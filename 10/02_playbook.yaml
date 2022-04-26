@@ -1,0 +1,14 @@
+---
+- hosts: switch_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 02_data.json
+      
+    - name: Renderizamos archivo de configuración para la interfaz del switch
+      template:
+        src: "02_template.j2"
+        dest: "02_{{ inventory_hostname }}.cfg"
+

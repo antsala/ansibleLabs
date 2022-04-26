@@ -1,0 +1,8 @@
+---
+hostname: router_01
+X: 1
+Y: 2
+A: True
+B: True
+C: False
+

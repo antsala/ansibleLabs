@@ -1,0 +1,13 @@
+---
+- hosts: switches
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 01_data.yaml
+      
+    - name: Renderizamos archivo de configuración para el switch
+      template:
+        src: "01_template.j2"
+        dest: "01_{{ inventory_hostname }}.cfg"

@@ -1,0 +1,6 @@
+---
+nameserver_primary: 8.8.8.8
+nameserver_secondary: 4.4.4.4
+ntpserver_primary: 0.pool.ntp.org
+ntpserver_secondary: 1.pool.ntp.org
+ 

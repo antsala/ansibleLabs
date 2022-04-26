@@ -1,0 +1,14 @@
+---
+- hosts: router_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 10_data.yaml
+      
+    - name: Generar archivo de configuración para el router_01
+      template:
+        src: "10_template.j2"
+        dest: "10_{{ inventory_hostname }}.cfg"
+

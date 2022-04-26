@@ -1,0 +1,12 @@
+---
+interfaces: 
+  Ethernet_01:
+    description: eth51
+    ipv4_address: 10.10.30.10/24
+    
+  Ethernet_02:
+    description: eth61
+    ipv4_address: 10.10.40.10/24
+
+
+ 

@@ -1,0 +1,14 @@
+---
+- hosts: router_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 12_data.yaml
+      
+    - name: Generar archivo de configuración para el router_01
+      template:
+        src: "12_template_no_macro.j2"
+        dest: "12_{{ inventory_hostname }}_no_macro.cfg"
+

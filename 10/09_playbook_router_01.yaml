@@ -1,0 +1,16 @@
+---
+- hosts: router_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 09_data.json
+      
+    - name: Generar archivo de configuración para el router_01
+      template:
+        src: "09_template.j2"
+        dest: "09_{{ inventory_hostname }}.cfg"
+
+
+

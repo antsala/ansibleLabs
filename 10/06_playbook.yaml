@@ -1,0 +1,16 @@
+---
+- hosts: switch_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 06_data.yaml
+      
+    - name: Configuración IP interfaces del switch
+      template:
+        src: "06_template.j2"
+        dest: "06_{{ inventory_hostname }}.cfg"
+
+
+

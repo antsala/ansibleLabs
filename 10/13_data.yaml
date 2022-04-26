@@ -1,0 +1,14 @@
+---
+nameserver_primary: 8.8.8.8
+nameserver_secondary: 4.4.4.4
+ntpserver_primary: 0.pool.ntp.org
+ntpserver_secondary: 1.pool.ntp.org
+ 
+all_interfaces:
+  - name: FastEthernet0/1
+    vlan: 10
+    mode: "access"
+  
+  - name: FastEthernet0/2
+    vlan: 20
+    mode: "trunk"

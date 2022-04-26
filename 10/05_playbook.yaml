@@ -1,0 +1,14 @@
+---
+- hosts: switches
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 05_data.yaml
+      
+    - name: Renderizamos archivo de reglas de firewall para el switch
+      template:
+        src: "05_template.j2"
+        dest: "05_{{ inventory_hostname }}.cfg"
+

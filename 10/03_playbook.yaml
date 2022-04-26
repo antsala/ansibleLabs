@@ -1,0 +1,16 @@
+---
+- hosts: switch_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 03_data.yaml
+      
+    - name: Renderizamos archivo de configuración
+      template:
+        src: "03_template.j2"
+        dest: "03_{{ inventory_hostname }}.cfg"
+
+
+

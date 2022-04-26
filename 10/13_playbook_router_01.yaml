@@ -1,0 +1,19 @@
+---
+- hosts: router_01
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 13_data.yaml
+      
+    - name: Generar archivo de configuración de interfaces
+      template:
+        src: "13_template_macro.j2"
+        dest: "13_{{ inventory_hostname }}_macro_aux.cfg"
+
+    - name: Generar configuración final
+      template:
+        src: "13_template_final.j2"
+        dest: "13_{{ inventory_hostname }}.cfg"
+

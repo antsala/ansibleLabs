@@ -1,0 +1,14 @@
+---
+- hosts: router_02
+  gather_facts: no
+  connection: local
+
+  tasks:
+    - name: Cargar variables
+      include_vars: 07_data_router_02_ospf.yaml
+      
+    - name: Generar archivo de configuración para el router_02
+      template:
+        src: "07_template.j2"
+        dest: "07_{{ inventory_hostname }}.cfg"
+

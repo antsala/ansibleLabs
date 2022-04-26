@@ -1,0 +1,7 @@
+hostname {{ inventory_hostname }}
+no ip domain lookup
+ip domain name acme.com
+ip name-server {{ nameserver_primary }}
+ip name-server {{ nameserver_secondary }}
+ntp server {{ ntpserver_primary }}
+ntp server {{ ntpserver_secondary }}

@@ -1,0 +1,15 @@
+# Este NO ES un comentario en ninja y se ha renderizado.
+
+hostname {{ inventory_hostname }} {# Esto si es un comentario #} 
+no ip domain lookup
+
+{# ACME.COM es nuestro dominio #}ip domain name acme.com
+
+ip name-server {{ nameserver_primary }}
+ip name-server {{ nameserver_secondary }}
+
+{# Por ahora anulamos la configuración de los servidores NTP.
+ntp server {{ ntpserver_primary }}
+ntp server {{ ntpserver_secondary }}
+#}
+

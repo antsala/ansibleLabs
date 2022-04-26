@@ -1,0 +1,3 @@
+[switches]
+switch_01
+switch_02
