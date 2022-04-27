@@ -1,0 +1,19 @@
+---
+- hosts: 192.168.20.60
+
+  tasks:
+  
+  - name: Copiar '05_my_script.sh'
+    ansible.builtin.copy:
+      src: ./05_my_script.sh
+      dest: /etc/05_my_script.sh
+      owner: otrousuario
+      group: otrousuario
+      mode: u+rwx
+    become: true
+  
+  - name: Ejecutar '05_my_script.sh', timeout=45 segundos, poll=5 segundos
+    command: "/etc/05_my_script.sh"
+    async: 50
+    poll: 5
+  

@@ -1,0 +1,26 @@
+---
+- hosts: 192.168.20.60
+
+  tasks:
+  
+  - name: Copiar '06_my_script.sh'
+    ansible.builtin.copy:
+      src: ./06_my_script.sh
+      dest: /etc/06_my_script.sh
+      owner: otrousuario
+      group: otrousuario
+      mode: u+rwx
+    become: true
+  
+  - name: Ejecutar '06_my_script.sh', de forma asíncrona
+    command: "/etc/06_my_script.sh"
+    async: 50
+    poll: 0   # IMPORTANTE.
+
+  - name: Otra tarea asíncrona
+    command: "ls -l -R /" # Listamos de forma recursiva el sistema de archivos.
+    async: 3600
+    poll: 0   # IMPORTANTE.
+    become: true
+
+ 

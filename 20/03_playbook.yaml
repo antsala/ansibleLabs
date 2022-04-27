@@ -1,0 +1,22 @@
+---
+- hosts: 192.168.20.60
+  gather_facts: no
+
+  tasks:
+    - name: Primera tarea. Hacer ping con etiqueta prueba
+      ansible.builtin.ping:
+
+    - name: Instala Nginx, desinstala Nginx
+      tags: prueba
+      block:
+        - name: Segunda tarea. Instalar Nginx
+          become: true
+          apt: 
+            name: nginx
+            state: present
+
+        - name: Tercera tarea. Desinstalar Nginx
+          become: true
+          apt: name=nginx state=absent
+
+
