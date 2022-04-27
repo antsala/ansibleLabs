@@ -1,0 +1,10 @@
+---
+- hosts: 192.168.20.60
+  debugger: on_failed
+  gather_facts: no
+  vars: 
+    var1: valor1
+  tasks:
+    - name: Error al usar una variable
+      ansible.builtin.ping: data = {{ otra_var }}
+
