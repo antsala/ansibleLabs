@@ -1,0 +1,38 @@
+---
+- name: "Ejemplo de delegación de tarea"
+  hosts: 192.168.20.70  # Vamos a administrar srv_02
+  tasks:
+
+  - name: "Tarea 01: Instala Nginx"
+    apt: name=nginx state=present  # Instalamos Nginx
+    become: true
+    
+  - name: "Tarea 02: Instalar 'Uncomplicated Firewall' (ufw)"
+    apt: name=ufw state=present    # Instalamos 'ufw'.
+    become: true
+
+  - name: "Tarea 03: Configurar el firewall 'ufw'"
+    ufw:
+      state: enabled       # Habilitamos el firewall.
+      policy: allow        # Habilita regla permitir.
+    become: true
+
+  - name: "Tarea 04: Abre puerto 80 del servidor web"
+    ufw: 
+      rule: allow           # Abre puerto...
+      port: 'http'          # http...
+      proto: tcp            # para tcp.
+    become: true
+
+  - name: "Tarea 05: Comprueba el estado del servidor web desde 'srv_01'"
+    uri:
+        url: http://{{inventory_hostname}}
+        method: GET 
+        timeout: 30 
+        status_code: 200
+        return_content: yes
+    delegate_to: 192.168.20.60
+    register: resultado
+
+  - name: "Tarea 06: Muestra valor de la variable"
+    debug: var=resultado
