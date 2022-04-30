@@ -8,11 +8,11 @@ interface {{ iface }}
   ip address {{ idata.ip }}/{{ idata.mask }}
 {%- endfor %}
 
-{% if routing_protocol | default('none')  == 'bgp' -%}
+{% if routing_protocol == 'bgp' -%}
 router bgp {{ bgp.as }}
   router-id {{ interfaces.iface0.ip }}
   network {{ interfaces.iface0.ip }}/{{ interfaces.iface0.mask }}
-{%- elif routing_protocol | default('none') == 'ospf' -%}
+{%- elif routing_protocol == 'ospf' -%}
 router ospf {{ ospf.pid }}
   router-id {{ interfaces.iface0.ip }}
   network {{ interfaces.iface0.ip }}/{{ interfaces.iface0.mask }} area 0
