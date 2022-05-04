@@ -1,7 +1,0 @@
-- hosts: 192.168.20.60
-  tasks:
-  - name: Instalar nginx
-    become: true
-    apt:
-      name: nginx
-      state: present
