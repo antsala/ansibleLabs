@@ -1,0 +1,129 @@
+# 02_modulos_fetch_y_synchronize.txt
+#
+# Prácticas con copia de ficheros.
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+#
+# Los ejercicios copiarán un archivo desde 'ubu_srv_01' a 'ubu_srv_02'
+
+
+###############################################################
+# Ejercicio 02_01. Copiar un archivo usando el módulo 'fetch' #
+###############################################################
+
+# Copiar el archivo '/home/otrousuario/00/proyecto_ACME' de ubu_srv_01 a
+# 'home/otrousuario/' en ubu_srv_02. 
+#
+# Pistas: 
+#           1) Usar la máquina de administración como intemediario para la copia del archivo
+#              'proyecto_ACME'.
+#
+#           2) Leer la documentación del módulo 'fetch'
+#
+# ¿Para qué se utiliza 'run_once: yes'?
+
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '02_01_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 02_01_playbook_solucion.yaml -u otrousuario
+
+
+###########################################################
+# Ejercicio 02_02. Preparar claves para copia de archivos #
+###########################################################
+
+# Este ejercicio no es necesario hacerlo por tu cuenta, solo sigue los pasos
+# que te indico aquí.
+#
+# El objetivo es que en el siguiente ejercicio (02_03), las máquinas 'ubu_svr_01' y 'ubu_srv_02'
+# puedan inteactuar entre sí directamente (con la delegación de Ansible) y para ello es necesario
+# que la autenticación entre dichas máquinas se produzca por medio de claves SSH.
+#
+
+# EN LA MÁQUINA SRV_01 HACER LOGIN CON EL USUARIO 'otrousuario'
+
+ssh otrousuario@192.168.20.60
+
+
+# Crear las claves (pública y privada) (Pulsar intro en cada pregunta)
+
+ssh-keygen
+
+
+# Comprobamos que se han generado.
+
+ls ~/.ssh
+
+
+# Copiamos la clave pública a ubu_srv_02
+
+ssh-copy-id otrousuario@192.168.20.70
+
+
+# VOLVEMOS A LA MÁQUINA DE ADMINISTRACIÓN
+
+exit
+
+
+# Ahora repetimos para ubu_srv_02
+
+# EN LA MÁQUINA SRV_02 HACER LOGIN CON EL USUARIO 'otrousuario'
+
+ssh otrousuario@192.168.20.70
+
+
+# Crear las claves (pública y privada) (Pulsar intro en cada pregunta)
+
+ssh-keygen
+
+
+# Comprobamos que se han generado.
+
+ls ~/.ssh
+
+
+# Copiamos la clave pública a ubu_srv_01
+
+ssh-copy-id otrousuario@192.168.20.60
+
+# VOLVEMOS A LA MÁQUINA DE ADMINISTRACIÓN
+
+exit
+
+
+# En este momento tanto srv_01 como srv_02 pueden hacerse ssh mutuo para el usuario 'otrousuario'
+# sin tener que proporcionar contraseñas. Esto es necesario para el siguiente ejercicio.
+
+
+
+#####################################################################
+# Ejercicio 02_03. Copiar un archivo usando el módulo 'synchronize' #
+#####################################################################
+
+# Copiar el archivo '/home/otrousuario/ansibleLabs/00/passVaultFile.txt' de ubu_srv_01 a 
+# '/home/otrousuario/' en ubu_srv_02. 
+#
+# Pistas: 
+#           1) Leer la documentación del módulo 'synchronize'
+#
+#           2) No se necesita a la máquina de administración como intermediario.
+#
+# ¿Qué diferencia existe entre 'pull' y 'push'?
+#
+# ¿Qué es 'delegate_to'?
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '02_03_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 02_03_playbook_solucion.yaml 
+
+
+
+

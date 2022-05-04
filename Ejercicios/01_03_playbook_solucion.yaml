@@ -1,0 +1,8 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Crear tarball de '/home/otrousuario/ansibleLabs'
+      archive:
+        path: '/home/otrousuario/ansibleLabs'
+        dest: '/home/otrousuario/ansibleLabs.tar.gz'
+        format: gz

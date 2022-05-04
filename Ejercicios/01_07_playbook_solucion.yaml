@@ -1,0 +1,10 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Comprimir el directorio '/home/otrousuario/ansibleLabs/00'
+      archive:
+        path: '/home/otrousuario/ansibleLabs/00/*'
+        dest: '/home/otrousuario/00.gz'
+        format: zip
+        exclude_path: 
+          - '/home/otrousuario/ansibleLabs/00/playbook_v*.yaml'

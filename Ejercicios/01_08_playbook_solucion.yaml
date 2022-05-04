@@ -1,0 +1,32 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Crear el directorio '/home/otrousuario/backup'
+      file: 
+        path: '/home/otrousuario/backup'
+        state: directory
+        owner: otrousuario 
+        group: otrousuario
+        mode: 0775
+
+    - name : Localizar los archivos 'playbook_v*.yaml'
+      find:
+       paths: '/home/otrousuario/ansibleLabs/00'
+       file_type: file
+       patterns: 
+         - 'playbook_v*.yaml'
+       use_regex: no
+       age: '1s'
+       age_stamp: mtime
+      register: output
+
+    - name:  Comprimir los archivos 'playbook_v*.yaml'
+      archive:
+        # Iteramos cada elemento de la colección
+        path: "{{ item.path }}"
+        # Creamos el nombre de archivo en la forma '<nombre_archivo>-DDMMYY.gz'
+        dest: "/home/otrousuario/backup/{{ item.path | basename }}-{{ansible_date_time.date.replace('-','')}}.gz"
+        format: zip
+      # Bucle
+      with_items: "{{ output.files }}"
+

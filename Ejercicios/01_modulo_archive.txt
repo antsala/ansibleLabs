@@ -1,0 +1,152 @@
+# 01_modulo_archive.txt
+#
+# Prácticas con el archivado de ficheros.
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+
+
+#################################################
+# Ejercicio 01_01. Clonar un repositorio de git #
+#################################################
+
+# En la máquina ubu-srv-01 clonar el repositorio 'https://github.com/antsala/ansibleLabs'
+# en el directorio $HOME del usuario 'otrousuario'.
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_01_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_01_playbook_solucion.yaml -u otrousuario
+
+
+#####################################################
+# Ejercicio 01_02. Empaquetar un directorio con tar #
+#####################################################
+
+# En la máquina ubu-srv-01 empaquetar con 'tar' el directorio /home/otrousuario/ansibleLabs' 
+# usando como credencial 'otrousuario'. El destino del archivo empaquetado debe ser el 
+# directorio HOME del usuario 'otrousuario'
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_02_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_02_playbook_solucion.yaml -u otrousuario
+
+
+#################################################
+# Ejercicio 01_03. Crear tarball del directorio #
+#################################################
+
+# En la máquina ubu-srv-01 crear un tarball del directorio /home/otrousuario/ansibleLabs' 
+# usando como credencial 'otrousuario'. El destino del archivo tarball debe ser el 
+# directorio HOME del usuario 'otrousuario'
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_03_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_03_playbook_solucion.yaml -u otrousuario
+
+
+#######################################################################################
+# Ejercicio 01_04. Comprimir el archivo '/home/otrousuario/ansibleLabs/00/ansible.txt #
+#######################################################################################
+
+# En la máquina ubu-srv-01 comprimir el archivo '/home/otrousuario/ansibleLabs/00/ansible.txt' 
+# usando como credencial 'otrousuario'. El destino del archivo comprimido debe ser el 
+# directorio HOME del usuario 'otrousuario'
+#
+# ¿Por qué no es necesario poner 'format: gz' en la definición de la tarea?
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_04_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_04_playbook_solucion.yaml -u otrousuario
+
+
+###################################################################################
+# Ejercicio 01_05. Comprimir el archivo '/home/otrousuario/ansibleLabs/00/foo.cfg #
+###################################################################################
+
+# En la máquina ubu-srv-01 comprimir el archivo '/home/otrousuario/ansibleLabs/00/foo.cfg' 
+# y eliminarlo después de la compresión. Usar como credencial 'otrousuario'. 
+# El destino del archivo comprimido debe ser el directorio HOME del usuario 'otrousuario'.
+#
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_05_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_05_playbook_solucion.yaml -u otrousuario
+
+
+###################################################################################
+# Ejercicio 01_06. Comprimir el archivo '/home/otrousuario/ansibleLabs/00/foo.txt #
+###################################################################################
+
+# En la máquina ubu-srv-01 comprimir el archivo '/home/otrousuario/ansibleLabs/00/foo.txt' 
+# en formato 'ZIP', y eliminarlo después de la compresión. Usar como credencial 'otrousuario'. 
+# El destino del archivo comprimido debe ser el directorio HOME del usuario 'otrousuario'.
+#
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_06_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_06_playbook_solucion.yaml -u otrousuario
+
+
+##############################################################################
+# Ejercicio 01_07. Comprimir el directorio '/home/otrousuario/ansibleLabs/00 #
+##############################################################################
+
+# En la máquina ubu-srv-01 comprimir el directorio '/home/otrousuario/ansibleLabs/00' 
+# en formato 'ZIP'. La tarea NO DEBE inlcuir los archivos 'playbook_vXX.yaml'. 
+# Usar como credencial 'otrousuario'. 
+# El destino del archivo comprimido debe ser el directorio HOME del usuario 'otrousuario'.
+#
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_07_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_07_playbook_solucion.yaml -u otrousuario
+
+
+################################################################
+# Ejercicio 01_08. Comprimir archivos yaml con marca de tiempo #
+################################################################
+
+# En la máquina ubu-srv-01 generar un archivo comprimido PARA CADA archivo 'playbook_v*.yaml' 
+# de directorio '/home/otrousuario/ansibleLabs/00/'en formato 'ZIP'. El nombre de cada archivo 'gz' 
+# debe incluir la fecha del momento en el que se ejecuta la tarea. 
+# Usar como credencial 'otrousuario'. 
+# El destino de los archivos comprimidos debe ser el directorio '/home/otrousuario/backup/'.
+#
+# Pista: estudiar la documentación del módulo 'find'.
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '01_08_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 01_08_playbook_solucion.yaml -u otrousuario
+

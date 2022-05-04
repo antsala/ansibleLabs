@@ -1,0 +1,16 @@
+---
+- hosts: servidores
+  tasks:
+    - name: Copiar el archivo 'proyecto_ACME' a la máquina de administración
+      run_once: yes
+      fetch: 
+        src:  '/home/otrousuario/ansibleLabs/00/proyecto_ACME'
+        dest: '/tmp/' 
+        flat: yes
+      when: inventory_hostname == '192.168.20.60'
+
+    - name: Copiar 'proyecto_ACME' desde máquina de administración a srv_02
+      copy: 
+        src: '/tmp/proyecto_ACME'
+        dest: '/home/otrousuario/'
+      when: inventory_hostname == '192.168.20.70'

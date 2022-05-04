@@ -1,0 +1,15 @@
+---
+- name: Tarea 'pull' del módulo 'synchronize' que se ejecuta en 'srv_02'
+  hosts: 192.168.20.60 # La tarea 'pull' se ejecuta por delegación en '192.168.20.70',
+                       # pero se ejecuta desde 192.168.20.60  
+  user: otrousuario
+
+  tasks:   
+    - name: Copia el archivo 'passVaultFile.txt' de srv_01 a srv_02 usando 'pull'
+      synchronize:
+        src:  '/home/otrousuario/ansibleLabs/00/passVaultFile.txt'
+        dest: '/home/otrousuario/passVaultFile.txt'
+        mode: pull
+      delegate_to: '192.168.20.70'
+      register: syncfile
+      run_once: true

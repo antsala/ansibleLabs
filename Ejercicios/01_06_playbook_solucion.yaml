@@ -1,0 +1,9 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Comprimir el archivo '/home/otrousuario/ansibleLabs/00/foo.txt'
+      archive:
+        path: '/home/otrousuario/ansibleLabs/00/foo.txt'
+        dest: '/home/otrousuario/foo.txt.gz'
+        format: zip
+        remove: yes

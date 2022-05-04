@@ -1,0 +1,7 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Clonar repositorio 'https://github.com/antsala/ansibleLabs'
+      ansible.builtin.git:
+        repo: 'https://github.com/antsala/ansibleLabs'
+        dest: /home/otrousuario/ansibleLabs
