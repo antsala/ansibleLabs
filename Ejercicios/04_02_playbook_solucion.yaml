@@ -1,0 +1,15 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Contactar con servicio web
+      uri:
+        url: 'https://jsonplaceholder.typicode.com/users'
+        return_content: yes
+      register: documentojson
+    
+    - name: Extraer información del documento JSON 
+      vars:
+        consultajme: "[*].{Nombre: name, Telefono: phone, Ciudad: address.city}"
+      debug:
+        msg: "{{ documentojson.json | json_query(consultajme) }}"
+

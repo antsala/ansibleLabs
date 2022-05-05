@@ -1,0 +1,61 @@
+# 04_api_rest_y_json_parser.txt
+#
+# Prácticas con API REST y JSON
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+#
+# En esta serie de ejercicios vamos a "simular" que Ansible realiza una petición REST ansible
+# un servicio web. Practicaremos cómo rescatar los datos JSON de la response y almacenarlos en
+# variables de Ansible.
+#
+# 'https://jsonplaceholder.typicode.com/users' es una API REST presente en Internet para probar estas
+# cosas. Conectar con un navegador para ver el JSON devuelto.
+
+
+#############################################
+# Ejercicio 04_01. Leer JSON desde API REST #
+#############################################
+
+# Deseamos contactar con el servicio web presente en 'https://jsonplaceholder.typicode.com/users' y mostrar el JSON 
+# resultante en la salida estándar. La tarea debe ejecutarse desde srv_01.
+#
+# Pistas: 
+#           1) Leer la documentación del módulo 'uri'
+#
+#          
+
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '04_01_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 04_01_playbook_solucion.yaml -u otrousuario
+
+
+#################################
+# Ejercicio 04_02. Parsear JSON #
+#################################
+
+# 'json_query' es un filtro presente en Ansible que nos permite consultar un documento JSON y extraer la información
+# que nos interese.
+#
+# Continuando el ejercicio anterior, deseamos parsear el json para mostrar ciertas propiedades. Concretamente
+# 'Name', 'Phone' y 'City'.
+#
+# Pistas: 
+#           1) Buscar información sobre 'json_query': 
+#              https://docs.ansible.com/ansible/latest/collections/community/general/docsite/filter_guide_selecting_json_data.html
+#
+#
+# ¿Qué hace 'return_content'?
+#          
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '04_02_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 04_02_playbook_solucion.yaml -u otrousuario

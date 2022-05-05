@@ -1,0 +1,15 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Contactar con servicio web
+      uri:
+        url: 'https://jsonplaceholder.typicode.com/users'
+        method: GET
+      register: documentojson
+
+    - debug:
+        var: documentojson
+
+        
+
+
