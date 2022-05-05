@@ -1,0 +1,18 @@
+---
+- hosts: servidores
+  tasks:
+    - name: crear archivo foo.pid
+      file:
+        state: touch
+        path: '/home/otrousuario/foo.pid'
+      register: salidatouch
+
+    - name: ejecutar comando 'ls' 
+      command: "ls -R /home"
+      register: salidals
+      when: salidatouch is changed
+
+    - debug:
+        var: salidals.stdout_lines
+
+

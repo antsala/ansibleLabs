@@ -57,3 +57,31 @@ ansible-playbook -i hosts.txt 03_01_playbook_solucion.yaml -u otrousuario
 # Comando para el despliegue:
 
 ansible-playbook -i hosts.txt 03_02_playbook_solucion.yaml -u otrousuario
+
+
+############################################################
+# Ejercicio 03_03. Ejecutar un script si existe un archivo #
+############################################################
+
+# Deseamos ejecutar un comando solo si en el sistema remoto existe un archivo concreto.
+# 
+# La primera tarea llamada 'crear archivo foo.pid' deberá crear un archivo vacío en la ruta 
+# 'home/otrousuario/foo.pid de los servidores administrados.
+#
+# Crear una tarea llamada 'ejecutar comando 'ls' ', que ejecute que almacene la salida del comando
+# 'ls -r /' en la variable 'listado_archivos', solamente si existe el archivo '/home/otrousuario/foo.pid'.
+#
+# Pistas: 
+#           1) Detectar en la segunda tarea si la primera se ejecutó, es dedir, si el estado de la primera
+#              tarea ha cambiado (changed). Esta técnica se basa en comprobar si una variable registrada se 
+#              ha actualizado o no.
+#
+# También se puede hacer con handlers ¿Te atreverías a hacerlo?
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '03_03_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 03_03_playbook_solucion.yaml -u otrousuario
