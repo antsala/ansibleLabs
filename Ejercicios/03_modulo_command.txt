@@ -1,0 +1,59 @@
+# 03_modulo_command.txt
+#
+# Prácticas con el módulo de comandos de Ansible.
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+#
+# 
+
+############################################################
+# Ejercicio 03_01. Obtener el Uptime de servidores remotos #
+############################################################
+
+# Deseamos obtener el tiempo en línea (uptime) de las máquinas svr_01 y srv_02. Para ello
+# deberas crear un playbook que lo muestre por la salida estándar.  
+#
+# Una vez conseguido, modifica el playbook para almacenar dicha salida en un archivo de texto
+# llamado '03_01_uptime_servidores.log'
+#
+# Pistas: 
+#           1) Leer la documentación del módulo 'lineinfile'
+#
+#           2) Localizar información para redireccionar la salida estándar a un archivo.
+#
+# ¿ Para qué se utiliza 'local_action'?
+
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '03_01_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 03_01_playbook_solucion.yaml -u otrousuario
+
+
+###############################################################################
+# Ejercicio 03_02. Obtener log con información de disco de servidores remotos #
+###############################################################################
+
+# Deseamos obtener información del nombre del sistema operativo y el uso de disco en
+# en las máquinas svr_01 y srv_02. Para ello deberas crear un playbook que lo muestre 
+# por la salida estándar.  
+#
+# Una vez conseguido, modifica el playbook para almacenar dicha salida en un archivo de texto
+# llamado '03_02_uso_de_disco.log'
+#
+# Pistas: 
+#           1) Leer la documentación del módulo 'lineinfile'
+#
+#           2) Localizar información para redireccionar la salida estándar a un archivo.
+#
+
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '03_02_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 03_02_playbook_solucion.yaml -u otrousuario

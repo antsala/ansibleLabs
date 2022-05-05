@@ -1,0 +1,21 @@
+---
+- hosts: servidores
+  tasks:
+    - name: Ejecuta el comando 'uptime' en los servidores
+      register: salidauptime
+      command: "uptime"
+
+    - debug:
+        var: salidauptime.stdout_lines
+
+    - local_action: 
+        module: file  # Eliminamos el fichero si existe.
+        path: '~/ansibleLabs/Ejercicios/03_01_uptime_servidores.log'
+        state: absent
+
+    - local_action:
+        module: lineinfile # Creamos y añadimos líneas.
+        create: yes
+        line: "{{ ansible_hostname }}: {{ salidauptime.stdout }}"
+        insertafter: EOF
+        dest: '~/ansibleLabs/Ejercicios/03_01_uptime_servidores.log'
