@@ -4,21 +4,22 @@
 #
 # 
 
-#####################################################################
-# Ejercicio 06_01. Adaptar despliegue de Ansible de CentOS a Ubuntu #
-#####################################################################
+###############################################################
+# Ejercicio 06_01. Adaptar despliegue LAMP de CentOS a Ubuntu #
+###############################################################
 
 # El propósito de este ejercicio es tomar un despliegue funcional a modo de ejemplo y adaptarlo
-# a tu infraestructura, en este caso, además de la máquina de administración, tenemos 'srv_01' y 'srv_02'
-# ambas con Ubuntu 20.04.
+# a la infraestructura de laboratorios. Como sabes, además de la máquina de administración, 
+# tenemos 'srv_01' y 'srv_02', ambas con Ubuntu 20.04.
 #
 # El despliegue de ejemplo del que partimos usa estructuras avanzadas de Ansible, como plantillas y roles.
 #
 # Tu misión es adaptar el ejemplo para que funcione en la infraestructura de laboratorios.
 #
-# En esta caso no de aportamos los archivos con la solución, ya que existen muchas soluciones válidas.
+# En esta caso no te aporto los archivos con la solución, ya que existen muchas soluciones válidas y
+# ya deberías ser capaz de realizarlo por tu cuenta.
 #
-# Te propongo desplegar un servidor LAMP (Linux, Apache, MySQL y PHP) en 'srv_01'. Para ello te proporcionados
+# Te propongo desplegar un servidor LAMP (Linux, Apache, MySQL y PHP) en 'srv_01'. Para ello te proporciono
 # a modo de ejemplo, una solución completamente funcional, que presenta una pequeña dificultad: El despliegue está
 # pensado para CentOS. 
 #
