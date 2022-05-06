@@ -1,0 +1,40 @@
+# 06_Ejercicios_finales.txt
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+# 
+
+#####################################################################
+# Ejercicio 06_01. Adaptar despliegue de Ansible de CentOS a Ubuntu #
+#####################################################################
+
+# El propósito de este ejercicio es tomar un despliegue funcional a modo de ejemplo y adaptarlo
+# a tu infraestructura, en este caso, además de la máquina de administración, tenemos 'srv_01' y 'srv_02'
+# ambas con Ubuntu 20.04.
+#
+# El despliegue de ejemplo del que partimos usa estructuras avanzadas de Ansible, como plantillas y roles.
+#
+# Tu misión es adaptar el ejemplo para que funcione en la infraestructura de laboratorios.
+#
+# En esta caso no de aportamos los archivos con la solución, ya que existen muchas soluciones válidas.
+#
+# Te propongo desplegar un servidor LAMP (Linux, Apache, MySQL y PHP) en 'srv_01'. Para ello te proporcionados
+# a modo de ejemplo, una solución completamente funcional, que presenta una pequeña dificultad: El despliegue está
+# pensado para CentOS. 
+#
+# Tu misión es adaptarlo para que funcione en Ubuntu. Buena suerte!!!!
+
+# Aquí tienes la URL con la documentación: https://github.com/ansible/ansible-examples/tree/master/lamp_simple
+
+
+################################################################################
+# Ejercicio 06_02. Estudiar y adaptar despliegue de Ansible de CentOS a Ubuntu #
+################################################################################
+
+# Si aún tienes tiempo antes de que acabe el curso, o te interesa seguir mejorando tu destreza en Ansible,
+# te propongo que realices algo similar al ejercicio anterior con los ejemplos que aparecen en:
+#
+# https://github.com/ansible/ansible-examples
+#
+# Determina el orden que más te interese, pero ten en cuenta que algunos ejemplos podrían requerir una infraestructura
+# que quizás no esté disponible en las VMs que te hemos suministrado. Ten en cuenta eso antes de elegir.

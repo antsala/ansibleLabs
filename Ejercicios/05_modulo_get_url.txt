@@ -1,0 +1,62 @@
+# 05_modulo_get_url.txt
+#
+# Prácticas con el módulo de descarga de archivos de Ansible.
+#
+# Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
+#
+#
+# 
+
+######################################################################
+# Ejercicio 05_01. Descargar un archivo con verificación de checksum #
+######################################################################
+
+# Deseamos descargar un archivo en la máquina srv_01. Como sabemos podríamos usar el 
+# módulo 'command' y ejecutar un 'curl', pero en este ejercicio te propongo que uses 
+# un módulo de Ansible especializado en esta tarea: el módulo 'get_url'. 
+#
+# El archivo a descargar y su hash está en: https://releases.ansible.com/ansible/
+#
+# Se pide descargar el archivo 'ansible-2.9.9.tar.gz' comprobando el hash. Descargar en el
+# directorio $HOME de 'otrousuario'. Establecer como propietario a 'otrousuario'. Asignar 
+# solo el permiso de lectura para todos.
+#
+# Pistas: 
+#           1) Leer la documentación del módulo 'get_url'
+#
+#
+# ¿Cuál es el formato del campo 'checksum'?
+# ¿Pará qué sirve el parámetro 'force'?
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '05_01_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 05_01_playbook_solucion.yaml -u otrousuario
+
+
+######################################################################
+# Ejercicio 05_02. Solucionar error al volver a descargar el archivo #
+######################################################################
+
+# Ejecuta el playbook anterior, se producirá un error.
+
+ansible-playbook -i hosts.txt 05_01_playbook_solucion.yaml -u otrousuario
+
+# Se pide corregir el playbook para que no de error si se desea descargar de nuevo
+# el mismo archivo.
+#
+# Pistas: 
+#           1) Leer detenidamente el error de la ejecución del playbook
+#
+#
+# Archivos proporcionados:
+#   'host.txt' contiene el inventario.
+#   '05_02_playbook_solucion.yaml' playbook con la solución.
+# 
+# Comando para el despliegue:
+
+ansible-playbook -i hosts.txt 05_02_playbook_solucion.yaml -u otrousuario
+

@@ -1,0 +1,17 @@
+---
+- hosts: 192.168.20.60
+  tasks:
+    - name: Descargar Ansible ansible-2.9.9 usando el módulo 'get_url'
+      get_url:
+       url: https://releases.ansible.com/ansible/ansible-2.9.9.tar.gz
+       dest: /home/otrousuario
+       force: yes 
+       mode: 0444
+       checksum: sha256:e83d84ae8bf131c0499d8a4c0e1144bf969454c43086e61cca3c224227df29d1
+       group: otrousuario
+       owner: otrousuario
+  
+
+        
+
+
