@@ -5,7 +5,7 @@
 # Establecer el directorio de trabajo en '~/ansibleLabs/Ejercicios'
 #
 #
-# En esta serie de ejercicios vamos a "simular" que Ansible realiza una petición REST ansible
+# En esta serie de ejercicios vamos a "simular" que Ansible realiza una petición REST 
 # un servicio web. Practicaremos cómo rescatar los datos JSON de la response y almacenarlos en
 # variables de Ansible.
 #
