@@ -1,6 +1,13 @@
 ---
 - hosts: 192.168.20.60
   tasks:
+    - name: Instalar git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+      become: true
+    
     - name: Clonar repositorio 'https://github.com/antsala/ansibleLabs'
       ansible.builtin.git:
         repo: 'https://github.com/antsala/ansibleLabs'
