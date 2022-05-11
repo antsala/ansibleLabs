@@ -16,7 +16,7 @@
 #
 # Tu misión es adaptar el ejemplo para que funcione en la infraestructura de laboratorios.
 #
-# En esta caso no te aporto los archivos con la solución, ya que existen muchas soluciones válidas y
+# En este caso no te aporto los archivos con la solución, ya que existen muchas soluciones válidas y
 # ya deberías ser capaz de realizarlo por tu cuenta.
 #
 # Te propongo desplegar un servidor LAMP (Linux, Apache, MySQL y PHP) en 'srv_01'. Para ello te proporciono

@@ -68,7 +68,7 @@ ansible-playbook -i hosts.txt 03_02_playbook_solucion.yaml -u otrousuario
 # La primera tarea llamada 'crear archivo foo.pid' deberá crear un archivo vacío en la ruta 
 # 'home/otrousuario/foo.pid de los servidores administrados.
 #
-# Crear una tarea llamada 'ejecutar comando 'ls' ', que ejecute que almacene la salida del comando
+# Crear una tarea llamada 'ejecutar comando 'ls' ', que almacene la salida del comando
 # 'ls -r /' en la variable 'listado_archivos', solamente si existe el archivo '/home/otrousuario/foo.pid'.
 #
 # Pistas: 
