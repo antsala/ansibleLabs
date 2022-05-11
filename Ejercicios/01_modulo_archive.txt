@@ -19,7 +19,7 @@
 # 
 # Comando para el despliegue:
 
-ansible-playbook -i hosts.txt 01_01_playbook_solucion.yaml -u otrousuario
+ansible-playbook -i hosts.txt 01_01_playbook_solucion.yaml -u otrousuario -K
 
 
 #####################################################
