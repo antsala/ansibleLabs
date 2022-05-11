@@ -1,6 +1,6 @@
 # Los ejercicios están numerados con dos dígitos (01, 02, 03, ...)
 # Para cada ejercicio, leer el archivo 'XX_título_del_ejercicio.txt' que
-# contiene los enunciados de las pŕacticas a realizar. Este mismo archivo hace
+# contiene los enunciados de las prácticas a realizar. Este mismo archivo hace
 # referencia a otros archivos que muestran la solución.
 #
 #

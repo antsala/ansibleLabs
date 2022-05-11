@@ -3,7 +3,7 @@
   gather_facts: no
 
   tasks:
-    - name: Primera tarea. Hacer ping con etiqueta prueba
+    - name: Primera tarea. Hacer ping.
       ansible.builtin.ping:
 
     - name: Instala Nginx, desinstala Nginx
